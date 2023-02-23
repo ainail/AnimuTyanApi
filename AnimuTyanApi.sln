@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimuTyanApi", "AnimuTyanApi\AnimuTyanApi.csproj", "{5EFFC28A-995D-47FC-B212-478807627B4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{E82A091E-B7BA-40C6-B473-5DD7214DF739}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{356E4BF3-7652-46BD-BC16-E5AC6C277E62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EFFC28A-995D-47FC-B212-478807627B4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EFFC28A-995D-47FC-B212-478807627B4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EFFC28A-995D-47FC-B212-478807627B4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EFFC28A-995D-47FC-B212-478807627B4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E82A091E-B7BA-40C6-B473-5DD7214DF739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E82A091E-B7BA-40C6-B473-5DD7214DF739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E82A091E-B7BA-40C6-B473-5DD7214DF739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E82A091E-B7BA-40C6-B473-5DD7214DF739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{356E4BF3-7652-46BD-BC16-E5AC6C277E62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{356E4BF3-7652-46BD-BC16-E5AC6C277E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{356E4BF3-7652-46BD-BC16-E5AC6C277E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{356E4BF3-7652-46BD-BC16-E5AC6C277E62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {72FC6FAA-E523-414B-9E12-194F835652D6}
+	EndGlobalSection
+EndGlobal
