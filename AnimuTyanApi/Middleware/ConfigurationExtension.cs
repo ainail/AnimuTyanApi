@@ -17,6 +17,8 @@ public static class ConfigurationExtension
                 options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
             });
 
+        services.AddCors();
+
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
 
