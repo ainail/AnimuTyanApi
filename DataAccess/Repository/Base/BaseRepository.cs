@@ -8,21 +8,21 @@ namespace DataAccess.Repository.Base;
 public class BaseRepository<TDto> : IBaseRepository<TDto>
     where TDto : class, IDto
 {
-    private readonly AnimeTyanContext _dbContext;
+    protected readonly AnimeTyanContext DbContext;
 
     public BaseRepository(AnimeTyanContext dbContext)
     {
-        _dbContext = dbContext;
+        DbContext = dbContext;
     }
 
     public IQueryable<TDto> GetAll()
     {
-        return _dbContext.Set<TDto>().AsNoTracking();
+        return DbContext.Set<TDto>().AsNoTracking();
     }
 
     public async Task<TDto> GetById(Guid id)
     {
-        var dto = await _dbContext.Set<TDto>()
+        var dto = await DbContext.Set<TDto>()
             .AsNoTracking()
             .FirstOrDefaultAsync(e => e.Id == id);
 
@@ -33,21 +33,21 @@ public class BaseRepository<TDto> : IBaseRepository<TDto>
 
     public async Task<Guid> Create(TDto dto)
     {
-        await _dbContext.Set<TDto>().AddAsync(dto);
-        await _dbContext.SaveChangesAsync();
+        await DbContext.Set<TDto>().AddAsync(dto);
+        await DbContext.SaveChangesAsync();
         return dto.Id;
     }
 
     public async Task Update(Guid id, TDto dto)
     {
-        _dbContext.Set<TDto>().Update(dto);
-        await _dbContext.SaveChangesAsync();
+        DbContext.Set<TDto>().Update(dto);
+        await DbContext.SaveChangesAsync();
     }
 
     public async Task Delete(Guid id)
     {
         var entity = await GetById(id);
-        _dbContext.Set<TDto>().Remove(entity);
-        await _dbContext.SaveChangesAsync();
+        DbContext.Set<TDto>().Remove(entity);
+        await DbContext.SaveChangesAsync();
     }
 }

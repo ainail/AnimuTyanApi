@@ -7,38 +7,38 @@ public abstract class BaseCrudService<TEntity, TDto, TRepository>
 where TRepository : IBaseRepository<TDto>
 where TDto : class, IDto
 {
-    private readonly TRepository _repository;
+    protected readonly TRepository Repository;
     public BaseCrudService(TRepository repository)
     {
-        _repository = repository;
+        Repository = repository;
     }
 
     public async Task<Guid> Insert(TEntity entity)
     {
         var dto = MapToDto(entity);
-        return await _repository.Create(dto);
+        return await Repository.Create(dto);
     }
 
     public async Task<TEntity> Get(Guid id)
     {
-        var dto = await _repository.GetById(id);
+        var dto = await Repository.GetById(id);
         return MapToEntity(dto);
     }
 
     public async Task Update(Guid id, TEntity entity)
     {
         var dto = MapToDto(entity);
-        await _repository.Update(id, dto);
+        await Repository.Update(id, dto);
     }
 
     public async Task Delete(Guid id)
     {
-        await _repository.Delete(id);
+        await Repository.Delete(id);
     }
 
     public IEnumerable<TEntity> GetAll()
     {
-        var allDtos = _repository.GetAll();
+        var allDtos = Repository.GetAll();
         foreach (var dto in allDtos)
         {
             yield return MapToEntity(dto);

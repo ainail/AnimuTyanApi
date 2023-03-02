@@ -1,12 +1,14 @@
-﻿using Logic.Services.AnimeTyan;
+﻿using Logic.Services.Tyan;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AnimuTyanApi.Controllers.Tyan;
 
+[Authorize]
 public class TyanController : BaseController
 {
-    private AnimeTyanService _animeTyanService;
-    public TyanController(AnimeTyanService animeTyanService)
+    private TyanService _animeTyanService;
+    public TyanController(TyanService animeTyanService)
     {
         _animeTyanService = animeTyanService;
     }
@@ -23,7 +25,7 @@ public class TyanController : BaseController
     public Task<Guid> Post(TyanInsertRequest request)
     {
         return _animeTyanService.Insert(new TyanEntity(
-            request.Name, request.Surname, request.Age));
+            null, request.Name, request.Surname, request.Age));
     }
 
     [HttpGet]
