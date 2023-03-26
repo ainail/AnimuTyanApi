@@ -13,6 +13,7 @@ public class TyanController : BaseController
         _animeTyanService = animeTyanService;
     }
 
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<TyanResponse> Get([FromRoute] Guid id)
     {
@@ -21,6 +22,8 @@ public class TyanController : BaseController
         return response;
     }
 
+
+    [Authorize]
     [HttpPost]
     public Task<Guid> Post(TyanInsertRequest request)
     {
@@ -28,6 +31,8 @@ public class TyanController : BaseController
             null, request.Name, request.Surname, request.Age));
     }
 
+
+    [Authorize]
     [HttpGet]
     public IEnumerable<TyanResponse> GetAll()
     {
@@ -38,6 +43,8 @@ public class TyanController : BaseController
         }
     }
 
+
+    [Authorize]
     [HttpDelete]
     public Task Delete(Guid id)
     {
@@ -52,6 +59,7 @@ public class TyanController : BaseController
     }
 
 
+    [Authorize]
     private TyanResponse MapToResponse(TyanEntity entity)
     {
         var response = new TyanResponse(entity.Id, entity.Name, entity.Surname, entity.Age);

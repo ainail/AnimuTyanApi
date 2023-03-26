@@ -11,13 +11,13 @@ public static class ConfigurationExtension
 {
     public static void RegisterServices(this IServiceCollection services)
     {
+        services.AddCors();
         services.AddControllers()
             .AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
             });
 
-        services.AddCors();
 
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();

@@ -13,6 +13,15 @@ namespace AnimuTyanApi
 
             var app = builder.Build();
 
+
+            app.UseCors(b => b
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true)
+                .AllowCredentials()
+                .WithExposedHeaders("set-cookie", "Content - Type", "Depth", "User - Agent", "X - File - Size", "X - Requested - With",
+                    "If - Modified - Since"," X - File - Name", "Cache - Control", ".AspNetCore.Cookies", "X-Requested-With", "X-HTTP-Method-Override"));
+
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -25,11 +34,6 @@ namespace AnimuTyanApi
             app.AddErrorHandlingMiddleware();
 
             app.MapControllers();
-
-            app.UseCors(b => b.AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowCredentials());
 
             app.Run();
         }
